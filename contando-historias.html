@@ -392,7 +392,7 @@ const GALS=[
 ].map(g=>({...g,files:FILES[g.slug]}));
 const TOTAL=GALS.reduce((a,g)=>a+g.files.length,0);
 
-const EPS=['xmVdRRU-N4U','EGB0GdBgYm0','lcCqiS92HSM','QBTFdW_82YI','vDCs1odjQpI','oS0RCppWBWU'];
+const EPS=[{"id": "xmVdRRU-N4U", "title": "Curta Doc. - Dona Rosa e Seu Agripino"}, {"id": "EGB0GdBgYm0", "title": "Cores - Lyanda e Agdayana"}, {"id": "lcCqiS92HSM", "title": "Let´s Rock! - Bandas Thrauma e Anno Zero"}, {"id": "QBTFdW_82YI", "title": "Olha a castanha! - Thiago Botelho Fotografia"}, {"id": "vDCs1odjQpI", "title": "A bailarina - Thiago Botelho Fotografia"}, {"id": "oS0RCppWBWU", "title": "Dia no Zoo - Thiago Botelho Fotografia"}, {"id": "ITm0K8K20Uc", "title": "Nourrant - Palcos Invisíveis"}];
 
 const SPECS=[['Formato do papel','A3 · 29,7 × 42 cm'],['Papel Fine Art','Canson Rag Photographique 310 g/m²'],['Acabamento','Moldura de brinde + certificado de autenticidade'],['Imagem','Proporção original preservada, com margens conforme o enquadramento']];
 const EXCL=t=>({tag:'Peça única',name:'Arte exclusiva',price:'600',cents:'00',items:['<b>Pagamento via Pix ou em até 12x no cartão de crédito.</b>','Frete grátis para todo o Brasil.','<b>Moldura de brinde</b> + certificado de autenticidade inclusos.'],msg:`Olá! Gostaria de adquirir a obra Fine Art "${t}" na modalidade Arte exclusiva — R$ 600,00 com frete grátis. Poderia confirmar a disponibilidade e os detalhes do pedido?`});
@@ -509,7 +509,7 @@ function stories(){
   return `<div class="view">
   <section class="ph-hero"><span class="eyebrow">Fotografia · Vivências · Narrativas</span><h1>Contando <em>Histórias</em></h1><p>Por trás de cada imagem existe uma história. Neste espaço, compartilho caminhos, encontros, bastidores e experiências que dão sentido ao meu olhar.</p><span class="count">${EPS.length} episódios</span></section>
   <section class="sec" style="padding-bottom:0"><div class="sec-head"><div><span class="eyebrow">O vlog de Thiago Botelho</span><h2>Episódios</h2></div></div></section>
-  <div class="eps">${EPS.map((id,i)=>`<article class="ep rv" style="--d:${(i%2)*.08}s">${vid(id,'Contando Histórias · '+pad(i+1))}<div class="ep-i"><div><span class="eyebrow">Episódio ${pad(i+1)}</span><h3>Contando Histórias · ${pad(i+1)}</h3></div><a class="yt" href="https://www.youtube.com/watch?v=${id}" target="_blank" rel="noopener noreferrer">Assistir no YouTube ↗</a></div></article>`).join('')}</div>
+  <div class="eps">${EPS.map((ep,i)=>({...ep,number:i+1})).reverse().map((ep,i)=>`<article class="ep rv" style="--d:${(i%2)*.08}s"><div class="ep-i"><div><span class="eyebrow">Episódio ${ep.number}</span><h3>${esc(ep.title)}</h3></div><a class="yt" href="https://www.youtube.com/watch?v=${ep.id}" target="_blank" rel="noopener noreferrer">Assistir no YouTube ↗</a></div>${vid(ep.id,ep.title)}</article>`).join('')}</div>
   <section class="sec" style="padding-top:0;text-align:center"><a class="btn" href="#/">← Página inicial</a> <a class="btn" href="#/portfolio" style="margin-left:10px">Ver portfólio ${arrow}</a></section></div>`;
 }
 
