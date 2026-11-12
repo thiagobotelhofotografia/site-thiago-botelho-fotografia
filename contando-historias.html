@@ -331,6 +331,39 @@ noscript{display:block;padding:140px var(--pad);text-align:center}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
   .rv{opacity:1;transform:none}
 }
+
+/* ---------- Menu do celular (v2) ---------- */
+@media(max-width:900px){
+  body.lock #hdr{backdrop-filter:none;-webkit-backdrop-filter:none;background:transparent;border-color:transparent}
+  body.lock .wa{opacity:0;pointer-events:none}
+  #hdr .brand{position:relative;z-index:120;min-width:0}
+  .burger{flex-shrink:0;margin-right:-10px}
+  #nav{inset:0;height:100vh;height:100dvh;justify-content:flex-start;align-items:stretch;gap:0;
+    padding:calc(var(--hh) + 34px) var(--pad) calc(28px + env(safe-area-inset-bottom));
+    background:radial-gradient(ellipse 90% 60% at 85% 0%,rgba(199,170,123,.13),transparent 60%),var(--bg);
+    counter-reset:mi;overflow-y:auto}
+  #nav::before{content:"Menu";font:600 10px var(--sans);letter-spacing:.32em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+  #nav>a:not(.cta){counter-increment:mi;display:flex;align-items:baseline;gap:18px;
+    font:400 clamp(30px,8.6vw,40px)/1.1 var(--serif);letter-spacing:.005em;padding:18px 0;
+    border-bottom:1px solid var(--line);opacity:0;transform:translateY(16px);
+    transition:opacity .5s var(--ease),transform .5s var(--ease),color .25s}
+  #nav>a:not(.cta)::before{content:counter(mi,decimal-leading-zero);font:500 10px var(--sans);letter-spacing:.2em;color:var(--gold);min-width:20px}
+  #nav>a:not(.cta):first-of-type{border-top:1px solid var(--line)}
+  #nav>a:not(.cta):active,#nav>a[aria-current="page"]{color:var(--gold2)}
+  #nav .navg{order:1;align-items:flex-start;margin-top:30px;opacity:0;transition:opacity .5s .3s}
+  #nav .navg div{justify-content:flex-start}
+  #nav>a.cta{order:2;margin-top:auto;display:block;text-align:center;font:700 11px var(--sans);letter-spacing:.22em;text-transform:uppercase;
+    padding:18px 28px;background:var(--gold);color:#13100c;border:1px solid var(--gold);
+    opacity:0;transform:translateY(16px);transition:opacity .5s var(--ease) .32s,transform .5s var(--ease) .32s}
+  #nav.open>a,#nav.open>a.cta,#nav.open .navg{opacity:1;transform:none}
+  #nav.open>a:nth-of-type(1){transition-delay:.06s}
+  #nav.open>a:nth-of-type(2){transition-delay:.12s}
+  #nav.open>a:nth-of-type(3){transition-delay:.18s}
+  #nav.open>a:nth-of-type(4){transition-delay:.24s}
+}
+@media(max-width:900px) and (max-height:700px){#nav>a.cta{margin-top:28px}}
+@media(max-width:900px) and (prefers-reduced-motion:reduce){#nav>a,#nav .navg{transition:none!important;transform:none!important}}
+@media(max-width:380px){#hdr .brand{font-size:20px;letter-spacing:.1em}}
 </style>
 </head>
 <body>
@@ -366,7 +399,7 @@ noscript{display:block;padding:140px var(--pad);text-align:center}
 </div>
 
 <script type="application/json" id="imgs">{}</script>
-<script type="application/json" id="gals">{"retratos": ["IMG_5035.jpg", "IMG_5080 (1).jpg", "IMG_2649.jpg", "IMG_2634.jpg", "IMG_3114.jpg", "IMG_6346.jpg", "IMG_3406.jpg", "IMG_8851.jpg", "IMG_8834.jpg", "IMG_1434.jpg", "IMG_3969.jpg", "IMG_4011.jpg", "IMG_8609.jpg", "IMG_8599.jpg", "IMG_9574.jpg", "IMG_9659.jpg", "IMG_9784.jpg", "IMG_0398.jpg", "IMG_0534.jpg", "IMG_0565.jpg", "IMG_0600.jpg", "IMG_0786.jpg", "IMG_0789.jpg", "IMG_1493.jpg", "IMG_1615.jpg", "IMG_1650.jpg", "IMG_1708.jpg", "IMG_1921.jpg", "IMG_4064.jpg", "IMG_4164.jpg", "IMG_4218.jpg", "IMG_4333.jpg", "IMG_4393.jpg", "IMG_4402.jpg", "IMG_4591.jpg", "IMG_4655.jpg", "IMG_4862.jpg", "IMG_6563 copiar.jpg"], "fotografia-de-rua": ["DSC00138.jpg", "IMG_8839.jpg", "IMG_8860.jpg", "IMG_9129.jpg", "IMG_8909.jpg", "IMG_8918.jpg", "IMG_9360.jpg", "IMG_9365.jpg", "IMG_4984.jpg", "IMG_3061.jpg", "IMG_3082.jpg", "IMG_9094.jpg", "IMG_9147.jpg", "IMG_7084.jpg", "IMG_7005.jpg", "IMG_7021.jpg", "IMG_8814.jpg"], "natureza": ["IMG_8883.jpg", "IMG_9682.jpg", "IMG_2374.jpg", "IMG_9054.jpg", "IMG_1287.jpg", "IMG_2767.jpg", "IMG_4418 (1).jpg", "IMG_4382 (2).jpg"], "esportes": ["unnamed (6).jpg", "unnamed (5).jpg", "unnamed (4).jpg", "unnamed (3).jpg", "IMG_9401.jpg", "IMG_9501.jpg", "IMG_6846.jpg", "IMG_9383.jpg", "IMG_3724.jpg", "IMG_3739.jpg", "IMG_9265.jpg", "IMG_6063.jpg", "IMG_6251.jpg", "IMG_6331.jpg", "IMG_2797.jpg", "IMG_2814.jpg"], "palcos": ["IMG_4098.jpg", "IMG_4106.jpg", "IMG_4121.jpg", "IMG_4162.jpg", "IMG_4172.jpg", "IMG_4195.jpg", "IMG_4205.jpg", "IMG_4239.jpg", "IMG_4312.jpg", "IMG_4384.jpg", "IMG_4471.jpg", "IMG_0330.jpg", "IMG_3142.jpg", "IMG_3228.jpg", "IMG_3311.jpg", "unnamed (16).jpg", "unnamed (15).jpg", "unnamed (14).jpg", "unnamed (13).jpg", "unnamed (12).jpg", "unnamed (11).jpg", "unnamed (10).jpg", "unnamed (9).jpg", "unnamed (8).jpg", "unnamed (7).jpg", "IMG_7025.jpg", "IMG_7209.jpg", "IMG_7400.jpg", "IMG_7522.jpg", "IMG_3186.jpg", "IMG_3347.jpg", "IMG_3395.jpg", "IMG_3416.jpg", "IMG_0003.jpg", "IMG_0273.jpg", "IMG_0355.jpg", "IMG_0405.jpg", "IMG_6515.jpg", "IMG_6553.jpg", "IMG_0868.jpg", "IMG_1003.jpg", "IMG_0720.jpg", "IMG_4614.jpg", "IMG_4913.jpg", "IMG_4840.jpg", "IMG_6364.jpg", "IMG_4469.jpg", "IMG_4709.jpg", "DSC05349.jpg", "IMG_6417 (1).jpg"], "eventos-cultura": ["unnamed (23).jpg", "unnamed (22).jpg", "unnamed (21).jpg", "unnamed (20).jpg", "unnamed (19).jpg", "unnamed (18).jpg", "unnamed (17).jpg", "IMG_7162.jpg", "IMG_5340.jpg", "IMG_5760.jpg", "IMG_5768.jpg", "IMG_3560.jpg", "IMG_0962.jpg", "IMG_1173 (1).jpg", "IMG_1148.jpg", "IMG_6830.jpg", "IMG_6995.jpg", "IMG_3588.jpg", "IMG_2000.jpg", "IMG_2708.jpg", "IMG_6927.jpg", "IMG_6958.jpg", "IMG_6962.jpg", "IMG_6974.jpg", "IMG_6982.jpg", "IMG_6985.jpg", "IMG_7011.jpg", "IMG_7015.jpg", "IMG_8924.jpg", "IMG_8930.jpg"], "gastronomia": ["IMG_7299.jpg", "IMG_7298.jpg", "IMG_7423.jpg", "IMG_8122.jpg", "IMG_8177.jpg", "IMG_8237.jpg", "IMG_8399.jpg", "IMG_6805.jpg", "IMG_6785.jpg", "IMG_6001.jpg"]}</script>
+<script type="application/json" id="gals">{"retratos": ["IMG_9804.jpg", "IMG_9815.jpg", "IMG_9822.jpg", "IMG_9854.jpg", "IMG_0398.jpg", "IMG_4218.jpg", "IMG_1708.jpg", "IMG_1921.jpg", "IMG_0600.jpg", "IMG_4402.jpg", "IMG_9659.jpg", "IMG_4393.jpg", "IMG_8609.jpg", "IMG_8851.jpg", "IMG_1493.jpg", "IMG_4064.jpg", "IMG_8599.jpg", "IMG_3114.jpg", "IMG_9784.jpg", "4-IMG_4552 copiar.jpg", "IMG_1434.jpg", "IMG_0534.jpg", "IMG_1615.jpg", "IMG_5035.jpg", "IMG_0516.jpg", "IMG_9574.jpg", "IMG_2634.jpg", "IMG_4862.jpg", "IMG_0786.jpg", "IMG_3969.jpg", "IMG_1650.jpg", "IMG_6346.jpg", "IMG_0509.jpg", "IMG_1431.jpg", "IMG_3406(1).jpg", "IMG_8834.jpg", "IMG_0789.jpg", "IMG_4655.jpg", "IMG_0565.jpg", "IMG_5080 (1).jpg", "IMG_4591.jpg", "IMG_4333.jpg", "IMG_4011.jpg", "IMG_2788.jpg", "IMG_6563 copiar.jpg", "IMG_4164.jpg", "cf16615a-038d-42c8-9cf8-8fd43673d582.jpg", "IMG_2649.jpg", "IMG_2665.jpg", "6df40948-e8aa-48ab-a5e9-c49c0dfb4a9b.jpg", "IMG_0565(1).jpg"], "fotografia-de-rua": ["DSC00138.jpg", "IMG_8839.jpg", "IMG_8860.jpg", "IMG_9129.jpg", "IMG_8909.jpg", "IMG_8918.jpg", "IMG_9360.jpg", "IMG_9365.jpg", "IMG_4984.jpg", "IMG_3061.jpg", "IMG_3082.jpg", "IMG_9094.jpg", "IMG_9147.jpg", "IMG_7084.jpg", "IMG_7005.jpg", "IMG_7021.jpg", "IMG_8814.jpg"], "natureza": ["IMG_8883.jpg", "IMG_9682.jpg", "IMG_2374.jpg", "IMG_9054.jpg", "IMG_1287.jpg", "IMG_2767.jpg", "IMG_4418 (1).jpg", "IMG_4382 (2).jpg", "IMG_9389 (1).jpg"], "esportes": ["unnamed (6).jpg", "unnamed (5).jpg", "unnamed (4).jpg", "unnamed (3).jpg", "IMG_9401.jpg", "IMG_9501.jpg", "IMG_6846.jpg", "IMG_9383.jpg", "IMG_3724.jpg", "IMG_3739.jpg", "IMG_9265.jpg", "IMG_6063.jpg", "IMG_6251.jpg", "IMG_6331.jpg", "IMG_2797.jpg", "IMG_2814.jpg"], "palcos": ["IMG_4098.jpg", "IMG_4106.jpg", "IMG_4121.jpg", "IMG_4162.jpg", "IMG_4172.jpg", "IMG_4195.jpg", "IMG_4205.jpg", "IMG_4239.jpg", "IMG_4312.jpg", "IMG_4384.jpg", "IMG_4471.jpg", "IMG_0330.jpg", "IMG_3142.jpg", "IMG_3228.jpg", "IMG_3311.jpg", "unnamed (16).jpg", "unnamed (15).jpg", "unnamed (14).jpg", "unnamed (13).jpg", "unnamed (12).jpg", "unnamed (11).jpg", "unnamed (10).jpg", "unnamed (9).jpg", "unnamed (8).jpg", "unnamed (7).jpg", "IMG_7025.jpg", "IMG_7209.jpg", "IMG_7400.jpg", "IMG_7522.jpg", "IMG_3186.jpg", "IMG_3347.jpg", "IMG_3395.jpg", "IMG_3416.jpg", "IMG_0003.jpg", "IMG_0273.jpg", "IMG_0355.jpg", "IMG_0405.jpg", "IMG_6515.jpg", "IMG_6553.jpg", "IMG_0868.jpg", "IMG_1003.jpg", "IMG_0720.jpg", "IMG_4614.jpg", "IMG_4913.jpg", "IMG_4840.jpg", "IMG_6364.jpg", "IMG_4469.jpg", "IMG_4709.jpg", "DSC05349.jpg", "IMG_6417 (1).jpg"], "eventos-cultura": ["unnamed (23).jpg", "unnamed (22).jpg", "unnamed (21).jpg", "unnamed (20).jpg", "unnamed (19).jpg", "unnamed (18).jpg", "unnamed (17).jpg", "IMG_7162.jpg", "IMG_5340.jpg", "IMG_5760.jpg", "IMG_5768.jpg", "IMG_3560.jpg", "IMG_0962.jpg", "IMG_1173 (1).jpg", "IMG_1148.jpg", "IMG_6830.jpg", "IMG_6995.jpg", "IMG_3588.jpg", "IMG_2000.jpg", "IMG_2708.jpg", "IMG_6927.jpg", "IMG_6958.jpg", "IMG_6962.jpg", "IMG_6974.jpg", "IMG_6982.jpg", "IMG_6985.jpg", "IMG_7011.jpg", "IMG_7015.jpg", "IMG_8924.jpg", "IMG_8930.jpg"], "gastronomia": ["cookies-jacqueline-1.jpg", "pao-geleia.jpg", "preparo-alface.jpg", "preparo-torta.jpg", "salada-caprese.jpg", "torta-coracao.jpg", "bolo-cerejas-2.jpg", "bombons-healthy.jpg", "bombons-jacqueline.jpg", "cafe-da-manha.jpg", "cafe-the-coffee.jpg", "cookies-jacqueline-2.jpg", "hamburguer-batata.jpg"]}</script>
 <script>window.__PAGE="historias";</script>
 <script>
 (()=>{
